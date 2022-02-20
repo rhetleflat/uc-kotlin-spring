@@ -15,5 +15,9 @@ class KontoController(private val kontoService : KontoService) {
         kontoService.getKontoById(kontoId)
 
     @PostMapping("/konto")
-    fun createEmployee(@RequestBody payload: Konto): Konto = kontoService.createEmployee(payload)
+    fun createKonto(@RequestBody payload: Konto): Konto = kontoService.createKonto(payload)
+
+    @PutMapping("/konto/{id}")
+    fun updateKontoById(@PathVariable("id") employeeId: Long, @RequestBody payload: Konto): Konto =
+        kontoService.updateKontoById(employeeId, payload)
 }
